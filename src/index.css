@@ -1,0 +1,146 @@
+/* Reset Básico y Variables Globales */
+:root {
+    --color-dark-bg: #111827;
+    --color-card-bg: #1f2937;
+    --color-input-bg: #374151;
+    --color-red-main: #dc2626;
+    --color-pink-main: #db2777;
+    --color-yellow-main: #facc15;
+    --color-gray-text: #9ca3af;
+    --color-white: #fff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    
+}
+
+/* Contenedor principal de la aplicación (en App.jsx) */
+.app-container {
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;      
+   
+}
+
+.app-content-body {
+   flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    background-image: url('/imagenes/fondooriginal.jpg'); /* Ruta de tu imagen */
+    
+}
+
+/* ========================================= */
+/* ESTILOS DE LA PÁGINA ROCKOLA (Home) */
+/* ========================================= */
+
+/* Contenedor principal para la RockolaPage (Layout de 2 columnas) */
+.main-rockola-page {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    gap: 4rem; 
+    flex-direction: column; /* Columna por defecto en móvil */
+}
+
+
+.jukebox-container-content {
+    width: 100%; 
+}
+
+/* Columna 2: Contenedor de la Jukebox */
+.jukebox-col {
+    width: 100%;
+    max-width: 300px; /* Tamaño más compacto para el componente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    padding: 2rem 1rem; /* Padding ajustado */
+    border-radius: 1.5rem; 
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid #e62aa7; 
+}
+.controls-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; 
+    margin-top: 0.5rem; /* Ajustado para estar justo debajo de la imagen */
+    max-width: 200px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 900px) {
+    .main-rockola-page {
+        flex-direction: row; /* CLAVE: 2 columnas en desktop */
+        align-items: flex-start; 
+    }
+}
+
+/* ========================================= */
+/* ESTILOS DE COMPONENTES INTERNOS */
+/* ========================================= */
+
+/* CLASE CRÍTICA PARA AJUSTAR LA IMAGEN DE LA ROCKOLA */
+.jukebox-image {
+    max-width: 100%; 
+    height: auto;   
+    margin-bottom: 1rem;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5rem;
+}
+
+/* Estilos de Jukebox y Forms (Asegurando que no sean gigantes) */
+.jukebox-container-content {
+    width: 100%; 
+}
+
+
+/* ... (El resto de tus estilos de botones, inputs, etc.) ... */
+
+
+/* ========================================= */
+/* ESTILOS DEL HEADER (Responsividad) */
+/* ========================================= */
+
+.desktop-nav {
+    display: none;
+}
+
+.mobile-menu-button {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .mobile-menu-button {
+        display: none;
+    }
+    .desktop-nav {
+        display: flex !important;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+/* ANIMACIONES */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin 3s linear infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
