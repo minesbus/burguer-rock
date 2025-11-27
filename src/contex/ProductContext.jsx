@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 
-// CLAVE: ESTA URL DEBE SER REEMPLAZADA POR LA URL DE TU API MOCK REAL
-const MOCK_API_URL = 'https://690fa2d345e65ab24ac46de4.mockapi.io/prductos';
+// 1. IMPORTANTE: Usamos la variable de entorno de Vite.
+// Si no está definida en el entorno (Vercel/Netlify), usará el valor por defecto (la URL fija).
+const DEFAULT_API_URL = 'https://690fa2d345e65ab24ac46de4.mockapi.io/prductos';
+const MOCK_API_URL = import.meta.env.VITE_API_BASE_URL || DEFAULT_API_URL;
 
 const ProductContext = createContext();
 
 export const useProducts = () => useContext(ProductContext);
 
-// ASEGÚRATE DE QUE LA EXPORTACIÓN SEA CORRECTA
 export const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -19,12 +20,15 @@ export const ProductProvider = ({ children }) => {
         setError(null);
         
         try {
-            const response = await fetch(MOCK_API_URL);
-            if (!response.ok) {
-                throw new Error(`Error ${response.status}: Fallo al cargar la API de productos.`);
-            }
-            const data = await response.json();
+            // Usamos la constante MOCK_API_URL
+            const response = await fetch(MOCK_API_URL); 
             
+            if (!response.ok) {
+                // Si falla, mostramos qué URL estaba intentando usar
+                throw new Error(`Error ${response.status}: Fallo al cargar desde: ${MOCK_API_URL}`);
+            }
+            
+            const data = await response.json();
             setProducts(data); 
 
         } catch (err) {
@@ -33,7 +37,7 @@ export const ProductProvider = ({ children }) => {
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, []); // fetchProducts no tiene dependencias que cambien
 
     // Función para SIMULAR BORRADO
     const deleteProduct = useCallback(async (id) => {
