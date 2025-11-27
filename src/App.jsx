@@ -16,7 +16,7 @@ import LoginScreen from './component/LoginScreen.jsx'; // Nota: Usamos el casing
 import PrivateRoute from './component/PrivateRoute.jsx'; 
 import Header from './component/Header.jsx'; 
 import Footer from './component/Footer.jsx'; 
-import CrudPage from './component/crudpage.jsx'; // Nota: Usamos el casing que tienes (crudpage)
+import CrudPage from './component/CrudPage.jsx'; // Nota: Usamos el casing que tienes (crudpage)
 import FloatingJukebox from './component/FloatingJukebox.jsx';
 import CarritoPage from './component/CarritoPage.jsx'; 
 import PostresPage from './component/PostresPage.jsx'; // Usaremos esta
