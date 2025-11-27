@@ -6,7 +6,7 @@ import { PlusCircle, Save, XCircle } from 'lucide-react';
 const API_URL = 'https://690fa2d345e65ab24ac46de4.mockapi.io/prductos'; 
 
 // Este componente permite la creación y edición de productos (CREATE y UPDATE)
-const crudpage = () => {
+const CrudPage = () => {
     const navigate = useNavigate();
     
     // Estado inicial del formulario (debe coincidir con el esquema de la API: name, price, imageUrl, description)
@@ -115,4 +115,4 @@ const crudpage = () => {
     );
 };
 
-export default crudpage;
+export default CrudPage;
