@@ -12,7 +12,7 @@ import { ToastProvider } from './contex/ToastContext.jsx'; // Toastify
 // Importaciones de Vistas y Componentes
 import BurguerPage from './component/BurguerPage.jsx'; 
 import RockolaPage from './component/RockolaPage.jsx'; 
-import LoginScreen from './component/loginScreen.jsx'; // Nota: Usamos el casing que tienes (loginScreen)
+import LoginScreen from './component/LoginScreen.jsx'; // Nota: Usamos el casing que tienes (loginScreen)
 import PrivateRoute from './component/PrivateRoute.jsx'; 
 import Header from './component/Header.jsx'; 
 import Footer from './component/Footer.jsx'; 
