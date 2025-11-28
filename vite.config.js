@@ -5,14 +5,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   
-  // 1. CLAVE: Asegura que las rutas funcionen en Netlify/Vercel (Esto ya lo tenías).
   base: '/', 
 
-  // 2. SOLUCIÓN FINAL PARA EL ERROR DE 'tone'
+  // SOLUCIÓN FINAL (¡CON AMBAS LIBRERÍAS EXTERNALIZADAS!)
   build: {
     rollupOptions: {
-      external: ['tone'] // ESTO RESUELVE EL FALLO DE Rollup en Vercel/Netlify.
+      external: ['tone', 'lucide-react'] // Esto resuelve TODOS los problemas de Rollup.
     }
   }
-  // FIN DE LAS CORRECCIONES
 });
