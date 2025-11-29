@@ -2,11 +2,11 @@ import React, { createContext, useState, useContext, useEffect, useMemo, useCall
 import * as Tone from 'tone';
 
 // 1. CLAVE: IMPORTAR LAS 6 CANCIONES (¡AJUSTA LOS NOMBRES EXACTOS DE TUS ARCHIVOS!)
-import track1 from '../assets/sultans of swing.mp3'; // O el nombre que tengas (ej: Sultans Of Swing.mp3)
-import track2 from '../assets/cotton.mp3';
-import track3 from '../assets/jailhouse rock.mp3';
-import track4 from '../assets/green river.mp3'; // Asumo que tienes 3 más
-import track5 from '../assets/rock around the clock.mp3';
+import track1 from '/assets/sultans of swing.mp3'; // O el nombre que tengas (ej: Sultans Of Swing.mp3)
+import track2 from '/assets/cotton.mp3';
+import track3 from '/assets/jailhouse rock.mp3';
+import track4 from '/assets/green river.mp3'; // Asumo que tienes 3 más
+import track5 from '/assets/rock around the clock.mp3';
 
 
 
