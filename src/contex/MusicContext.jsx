@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect, useMemo, useCallback } from 'react';
-import * as Tone from 'tone';
+
 
 // 1. CLAVE: ELIMINAMOS LOS IMPORTS. EN SU LUGAR, DEFINIMOS LAS RUTAS PÚBLICAS.
 // ESTO ASUME QUE HAS MOVIDO LA CARPETA 'assets' A LA CARPETA 'public'.
