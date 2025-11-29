@@ -1,12 +1,16 @@
 import React, { createContext, useState, useContext, useEffect, useMemo, useCallback } from 'react';
 import * as Tone from 'tone';
 
-// 1. CLAVE: IMPORTAR LAS 6 CANCIONES (¡AJUSTA LOS NOMBRES EXACTOS DE TUS ARCHIVOS!)
-import track1 from '/assets/Sultans Of Swing.mp3'; // O el nombre que tengas (ej: Sultans Of Swing.mp3)
-import track2 from '/assets/Cotton.mp3';
-import track3 from '/assets/jailhouse rock.mp3';
-import track4 from '/assets/Green River.mp3'; // Asumo que tienes 3 más
-import track5 from '/assets/Rock Around The Clock.mp3';
+// 1. CLAVE: ELIMINAMOS LOS IMPORTS. EN SU LUGAR, DEFINIMOS LAS RUTAS PÚBLICAS.
+// ESTO ASUME QUE HAS MOVIDO LA CARPETA 'assets' A LA CARPETA 'public'.
+
+// Rutas Públicas Absolutas (inician con '/')
+const TRACK_URL_1 = '/assets/Sultans Of Swing.mp3';
+const TRACK_URL_2 = '/assets/Cotton.mp3';
+const TRACK_URL_3 = '/assets/jailhouse rock.mp3';
+const TRACK_URL_4 = '/assets/Green River.mp3';
+const TRACK_URL_5 = '/assets/Rock Around The Clock.mp3';
+// Agrega aquí los demás si los tienes (ej: const TRACK_URL_6 = '/assets/Otro.mp3';)
 
 
 
@@ -19,13 +23,13 @@ export const MusicProvider = ({ children }) => {
     const [currentPlayer, setCurrentPlayer] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
     
-    // LISTA DE TEMAS (USAMOS LAS VARIABLES IMPORTADAS)
+    // LISTA DE TEMAS (USAMOS LAS VARIABLES DE URLS PÚBLICAS)
     const initialTracks = useMemo(() => [
-        { title: "Sultans Of Swing", artist: "Dire Straits", fileUrl: track1 }, 
-        { title: "Cotton", artist: "AC/DC", fileUrl: track2 }, 
-        { title: "Jailhouse Rock", artist: "Elvis Presley", fileUrl: track3 }, 
-        { title: "Green river", artist: "Queen", fileUrl: track4 }, 
-        { title: "Rock Around The Clock", artist: "AC/DC", fileUrl: track5 }, 
+        { title: "Sultans Of Swing", artist: "Dire Straits", fileUrl: TRACK_URL_1 }, 
+        { title: "Cotton", artist: "AC/DC", fileUrl: TRACK_URL_2 }, 
+        { title: "Jailhouse Rock", artist: "Elvis Presley", fileUrl: TRACK_URL_3 }, 
+        { title: "Green river", artist: "Queen", fileUrl: TRACK_URL_4 }, 
+        { title: "Rock Around The Clock", artist: "AC/DC", fileUrl: TRACK_URL_5 }, 
         
         { title: "Rockola Inactiva", artist: "Rockola Inactiva", fileUrl: null }, // Último tema nulo para el loop
     ], []);
@@ -72,7 +76,7 @@ export const MusicProvider = ({ children }) => {
         
         // 3. Creamos un nuevo Player para la nueva canción
         const newPlayer = new Tone.Player({
-            url: track.fileUrl,
+            url: track.fileUrl, // Aquí usamos la URL de cadena de texto
             loop: true,
             volume: -10,
             onload: () => {
@@ -84,7 +88,7 @@ export const MusicProvider = ({ children }) => {
                 }
             },
             onerror: (e) => {
-                console.error(`Error crítico al cargar el MP3: ${track.fileUrl}. Verifica la ruta en src/assets/ y el formato.`, e);
+                console.error(`Error crítico al cargar el MP3: ${track.fileUrl}. Verifica la ruta en /public/assets/ y el formato.`, e);
                 setIsPlaying(false);
             }
         }).toDestination();
