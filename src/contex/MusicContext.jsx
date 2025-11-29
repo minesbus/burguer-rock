@@ -2,11 +2,11 @@ import React, { createContext, useState, useContext, useEffect, useMemo, useCall
 import * as Tone from 'tone';
 
 // 1. CLAVE: IMPORTAR LAS 6 CANCIONES (¡AJUSTA LOS NOMBRES EXACTOS DE TUS ARCHIVOS!)
-import track1 from '/assets/sultans of swing.mp3'; // O el nombre que tengas (ej: Sultans Of Swing.mp3)
-import track2 from '/assets/cotton.mp3';
+import track1 from '/assets/Sultans Of Swing.mp3'; // O el nombre que tengas (ej: Sultans Of Swing.mp3)
+import track2 from '/assets/Cotton.mp3';
 import track3 from '/assets/jailhouse rock.mp3';
-import track4 from '/assets/green river.mp3'; // Asumo que tienes 3 más
-import track5 from '/assets/rock around the clock.mp3';
+import track4 from '/assets/Green River.mp3'; // Asumo que tienes 3 más
+import track5 from '/assets/Rock Around The Clock.mp3';
 
 
 
@@ -21,11 +21,11 @@ export const MusicProvider = ({ children }) => {
     
     // LISTA DE TEMAS (USAMOS LAS VARIABLES IMPORTADAS)
     const initialTracks = useMemo(() => [
-        { title: "Sultans of Swing", artist: "Dire Straits", fileUrl: track1 }, 
-        { title: "cotton", artist: "AC/DC", fileUrl: track2 }, 
+        { title: "Sultans Of Swing", artist: "Dire Straits", fileUrl: track1 }, 
+        { title: "Cotton", artist: "AC/DC", fileUrl: track2 }, 
         { title: "Jailhouse Rock", artist: "Elvis Presley", fileUrl: track3 }, 
-        { title: "green river", artist: "Queen", fileUrl: track4 }, 
-        { title: "rock around the clock", artist: "AC/DC", fileUrl: track5 }, 
+        { title: "Green river", artist: "Queen", fileUrl: track4 }, 
+        { title: "Rock Around The Clock", artist: "AC/DC", fileUrl: track5 }, 
         
         { title: "Rockola Inactiva", artist: "Rockola Inactiva", fileUrl: null }, // Último tema nulo para el loop
     ], []);
